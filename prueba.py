@@ -79,7 +79,8 @@ class AplicacionTuring:
             resultado = mt.ejecutar()
             # Extraer solo la parte del resultado después del espacio para mayor claridad
             parte_resultado = resultado.split(' ')[-1]
-            self.etiqueta_resultado.config(text=f"Resultado: {parte_resultado}")
+            resultado_decimal = int(parte_resultado, 2)
+            self.etiqueta_resultado.config(text=f"Resultado: Binario: {parte_resultado}, Decimal: {resultado_decimal}")
         except RecursionError:
             messagebox.showerror("Error de Ejecución", "La Máquina de Turing encontró un bucle infinito.")
 
@@ -87,4 +88,4 @@ class AplicacionTuring:
 if __name__ == "__main__":
     root = tk.Tk()
     app = AplicacionTuring(root)
-    root.mainloop() 
+    root.mainloop()
